@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    #container {
+      position: relative;
+    }
+
+    #myCanvas {
+      border: 1px solid grey;
+      display: block;
+    }
+
+    #myForm {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    #text {
+      /* 1. Riserva lo spazio (modifica 60px in base alla grandezza del tuo font) */
+      min-height: 60px; 
+
+      /* 2. Impedisce che il box si restringa se è vuoto */
+      width: 100%; 
+
+      /* 3. Centra il testo perfettamente (orizzontale e verticale) */
+      display: flex;
+      justify-content: center; /* Orizzontale */
+      align-items: center;     /* Verticale */
+
+      /* Stile estetico */
+      font-weight: bold;
+      font-size: 30px;
+      background-color: #f0f0f0; /* Opzionale: per vedere l'area occupata */
+      border: 1px solid #ccc;    /* Opzionale */
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container" width="330" height="230">
+    <canvas id="myCanvas" width="330" height="230"></canvas>
+    <form id="myForm" width="330" height="230">
+      <div id ="Row1">
+        <label for="Altitude">\(y_0 \text{ (meter)}\)</label>
+        <input type="text" id="Altitude" name="Altitude" value="0" size="5">
+
+        <label for="Frequency">\(f \left(\frac{\text{arrow}}{\text{minute}}\right)\)</label>
+        <input type="text" id="Frequency" name="Frequency" value="5"size="5">
+      </div>
+      <br>
+      
+      <div id = "Row2">
+        <label for="Angle">\(\theta \text{ (angle)}\)</label>
+        <input type="text" id="Angle" name="Angle" value="45" size="5">
+
+        <label for="Velocity">\(v_0 \left(\frac{\text{m}}{\text{s}}\right)\)</label>
+        <input type="text" id="Velocity" name="Velocity" value="54" size="5">
+      </div>
+      <br>
+      <div id="text"></div>
+
+      <label for="Drag">Air drag</label>
+      <input type="checkbox" id="Drag" name="Drag" value="Drag"><br>
+
+      <button id="btnStart" type="button">Start</button>
+      
+    </form>    
+  </div>
+
+  <script src="script/plot.js" defer></script>
+</body>
+</html>
